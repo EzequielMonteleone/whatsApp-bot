@@ -1,0 +1,12 @@
+services:
+  bot:
+    build: .
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    volumes:
+      - ./config.yaml:/app/config.yaml:ro
+      - ./knowledge:/app/knowledge:ro
+      - ./prompts:/app/prompts:ro
+      - ./data:/app/data

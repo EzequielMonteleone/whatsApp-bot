@@ -1,0 +1,43 @@
+name: Nombre del negocio
+scope: "La información incluida en los archivos de conocimiento."
+refusal: "Solo puedo responder sobre lo que está en los archivos cargados."
+handoff: "Eso no está en la información que tengo. Una persona va a responder."
+unavailable: "Ahora no puedo responder. Escribime de nuevo en unos minutos."
+non_text: "Por ahora solo leo mensajes de texto."
+
+knowledge_dir: ./knowledge
+data_dir: ./data
+prompt_path: ./prompts/system.md
+
+retrieval:
+  max_distance: 0.45
+  top_k: 3
+  max_context_tokens: 800
+
+embeddings:
+  model: intfloat/multilingual-e5-small
+  passage_prefix: "passage: "
+  query_prefix: "query: "
+
+model:
+  provider: cursor
+  name: composer-2.5
+  api_key_env: CURSOR_API_KEY
+  max_output_tokens: 180
+
+whatsapp:
+  graph_version: v27.0
+  phone_number_id_env: WHATSAPP_PHONE_NUMBER_ID
+  token_env: WHATSAPP_TOKEN
+  verify_token_env: WHATSAPP_VERIFY_TOKEN
+  app_secret_env: WHATSAPP_APP_SECRET
+
+limits:
+  max_incoming_chars: 500
+  max_reply_chars: 700
+  pause_hours: 12
+  rate_per_minute: 8
+
+server:
+  host: 0.0.0.0
+  port: 8080
