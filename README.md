@@ -45,6 +45,17 @@ model:
 
 `CURSOR_API_KEY` se crea en [Cursor Dashboard → Integrations](https://cursor.com/dashboard/integrations). `base_url` solo hace falta para un proxy, y tiene que ser `https` salvo localhost.
 
+El modelo de embeddings, el que arma el índice:
+
+```yaml
+embeddings:
+  model: intfloat/multilingual-e5-small
+  passage_prefix: "passage: "
+  query_prefix: "query: "
+```
+
+`model` tiene que ser uno de [FastEmbed](https://qdrant.github.io/fastembed/examples/Supported_Models/). Los prefijos se anteponen al texto al embeber. Un modelo que no los use lleva `""`. Si cambiás el modelo o un prefijo, el próximo `reindex`, `ask` o `serve` vuelve a embeber todo.
+
 Para WhatsApp, en `.env`:
 
 | Variable | Uso |
