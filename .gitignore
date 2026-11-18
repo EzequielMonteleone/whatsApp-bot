@@ -8,6 +8,3 @@ dist/
 data/
 .env
 *.db
-examples/
-/config.yaml
-/knowledge/
